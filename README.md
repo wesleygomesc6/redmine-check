@@ -30,7 +30,7 @@ environments.ts && environment.prod.ts
 
 - Após o build, compacte a pasta gerada dentro do diretório 'dist' no formato zip.
 - Acesse o servidor da aplicação.
-  - Host: 10.6.55.76
+  - Host: host
   - Senha: password
 - Apague o arquivo 'redmine-check.zip' na pasta 'home/admin' e faça o upload do arquivo gerado no passo anterior.
 - Logue como root:
