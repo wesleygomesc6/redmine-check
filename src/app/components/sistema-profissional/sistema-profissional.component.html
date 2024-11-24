@@ -1,0 +1,28 @@
+<div class="card my-3">
+    <div class="card-header text-white bg-secondary bg-opacity-75 text-center">
+        <h5 class="mb-0">Sistema & Profissional</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-borderless table-striped table-hover">
+            <tbody>
+                <tr>
+                    <th style="width: 20%" scope="row">Sistema</th>
+                    <td>{{ tarefa.projeto }}</td>
+                </tr>
+
+                <tr>
+                    <th scope="row w-20">Profissional</th>
+                    <td>{{ tarefa.executor.nome }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Perfil</th>
+                    <td>{{ tarefa.executor.perfil }} - {{ tarefa.executor.complexidade }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Deflator</th>
+                    <td>{{ tarefa.executor.deflator }} - {{ tarefa.executor.fcpDeflator }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

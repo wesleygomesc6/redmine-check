@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.primary {
+    color: #004f4b !important;
+}
+
+.bg-primary {
+    background-color: #004f4b !important;
+    color: white !important;
+}
+
+.bg-secondary {
+    background-color: #00766f !important;
+    color: white !important;
+}
+
+.bg-warning {
+    background-color: #f7931e !important;
+    color: white !important;
+}
+
+.bg-success {
+    background-color: #1fa22e !important;
+}
+
+.fs-8 {
+    font-size: 0.8rem;
+}

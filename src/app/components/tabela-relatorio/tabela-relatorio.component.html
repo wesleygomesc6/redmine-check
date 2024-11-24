@@ -1,0 +1,66 @@
+<mat-tab-group class="my-3" animationDuration="0ms">
+    @for (tipoAtividade of dadosTabela; track $index) {
+
+    @if (tipoAtividade.atividades.length) {
+    <mat-tab label='{{tipoAtividade.titulo}} - {{tipoAtividade.totalAtividades}} atividades'>
+        <table class="table-bordered align-middle my-2">
+            <thead>
+                <tr class="header text-center">
+                    <th scope="col" class="px-2">Nº</th>
+                    <th scope="col">Id de Edital</th>
+                    <th scope="col">Serviço</th>
+                    <th scope="col">Complexidade</th>
+                    <th scope="col">Sistema/Projeto</th>
+                    <th scope="col">Escopo</th>
+                    <th scope="col">Perfis Exigidos</th>
+                    <th scope="col">Perfil Executor</th>
+                    <th scope="col">Executor</th>
+                    <th scope="col">Horas</th>
+                    <th scope="col">USTs</th>
+                    <th scope="col">Valor Executado (R$)</th>
+                    <th scope="col" *ngIf="tipoAtividade.status == 'het'">Diferença (executado - het)</th>
+                    <th scope="col">Evidências</th>
+                    <th scope="col" *ngIf="tipoAtividade.status != 'aprovadas'">Ressalva</th>
+                </tr>
+            </thead>
+            <tbody class="corpo">
+                <ng-container *ngFor="let atividade of tipoAtividade.atividades">
+                    <tr>
+                        <td class="text-center">{{ atividade.servico.numero }}</td>
+                        <td class="text-center"> {{atividade.servico.id}} </td>
+                        <td>{{ atividade.servico.servico }}</td>
+                        <td>{{ atividade.servico.complexidade}}</td>
+                        <td>{{ atividade.projeto }}</td>
+                        <td>{{ atividade.servico.escopo}}</td>
+                        <td>{{ atividade.perfisExigidosMap}}</td>
+                        <td>{{ atividade.executor.perfil}}</td>
+                        <td>{{ atividade.executor.nome }}</td>
+                        <td>{{ calcularTotal(atividade.tarefas, 'tempoExecucao') }}</td>
+                        <td>{{ calcularTotal(atividade.tarefas, 'ustRedmineCheck')}}</td>
+                        <td>{{calcularTotal(atividade.tarefas, 'totalExecutado')}}</td>
+                        <td *ngIf="tipoAtividade.status == 'het'">
+                            {{calcularValorExedenteHet(atividade)}}</td>
+                        <td>{{ mapear(atividade.tarefas, 'evidencias') }}</td>
+                        <td *ngIf="tipoAtividade.status != 'aprovadas'">{{mapear(atividade.tarefas, 'ressalvas')}}
+                        </td>
+                    </tr>
+                </ng-container>
+                <tr class="header text-center fw-bold">
+                    <td colspan="9">Totais</td>
+                    <td>{{calcularTotalHoras(dadosTabela[$index])}}</td>
+                    <td>{{calcularTotalUst(dadosTabela[$index])}}</td>
+                    <td>{{calcularTotalExecutado(dadosTabela[$index])}}</td>
+                    <td *ngIf="tipoAtividade.status == 'het'">
+                        {{calcularTotalExedenteHet(dadosTabela[$index])}}
+                    </td>
+                    <td colspan="2"></td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </mat-tab>
+    }
+
+    }
+</mat-tab-group>

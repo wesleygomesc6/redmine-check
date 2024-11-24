@@ -1,0 +1,47 @@
+<div class="align-items-center w-100">
+    <label id="example-radio-group-label">Selecione o Item do Catálogo:</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" [(ngModel)]="itemCatalogo">
+        @for (item of items; track item) {
+        <mat-radio-button color="primary" [value]="item">{{item}}</mat-radio-button>
+        }
+    </mat-radio-group>
+</div>
+<div class="d-block d-sm-flex align-items-center w-100">
+    <mat-form-field class="col-12 col-sm-6 col-md-4">
+        <mat-label>Número da Tarefa</mat-label>
+        <input matInput type="number" [(ngModel)]="numeroTarefa" [required]="true">
+        @if (numeroTarefa) {
+        <button matSuffix mat-icon-button aria-label="Clear" (click)="limparFormulario()">
+            <mat-icon>close</mat-icon>
+        </button>
+        }
+    </mat-form-field>
+    <div class="mb-3 text-end">
+        <button mat-button title="Check" class="bg-primary mx-2" (click)="getTarefa()" [disabled]="loading">
+            @if (loading) {
+            <mat-progress-spinner color="warn" mode="indeterminate" diameter="30">
+            </mat-progress-spinner>
+            } @else {
+            <div class="d-flex mx-2">
+                <mat-icon>search</mat-icon>
+                <span class="mx-2">Check</span>
+            </div>
+            }
+        </button>
+    </div>
+</div>
+<div class="col-12 col-sm-8 col-md-6">
+    <app-notificacao [mensagem]="notificacao" [alertar]="alertar"></app-notificacao>
+</div>
+@if (exibirInformacoes) {
+<app-validacoes [tarefa]="tarefa" [itemCatalogo]="itemCatalogo"></app-validacoes>
+<div class="container-fluid px-0 d-flex">
+    <div class="container px-0">
+        <app-sistema-profissional [tarefa]="tarefa"></app-sistema-profissional>
+    </div>
+    <div class="container px-0">
+        <app-quadro-horas [tarefa]="tarefa" [itemCatalogo]="itemCatalogo"></app-quadro-horas>
+    </div>
+</div>
+<app-evidencias [tarefa]="tarefa"></app-evidencias>
+}

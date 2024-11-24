@@ -1,0 +1,20 @@
+{
+    "/redmine": {
+        "target": "https://redmine-url/issues",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/redmine": ""
+        }
+    },
+    "/login": {
+        "target": "https://redmine-url/my/account.json",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/login": ""
+        }
+    }
+}

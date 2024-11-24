@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center align-self-center">
+    <div class="col-sm-8 col-md-6 col-xl-4">
+        <div class="card p-2">
+
+            <div class="alert alert-warning d-flex justify-content-between" role="alert" *ngIf="mensagem">
+                {{mensagem}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <form action="" class="row g-3" [formGroup]="formularioLogin" (ngSubmit)="onSubmit()">
+                <div class="card-title fs-5 text-center mt-3">Utilize suas credenciais do Redmine</div>
+                <div class="card-body p-4 mt-0">
+                    <div class="col-12">
+                        <label for="inputUsuario" class="form-label">Usuário</label>
+                        <input type="email" class="form-control" id="inputUsuario" formControlName="username" />
+                    </div>
+                    <div class="col-12">
+                        <label for="inputPassword" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="inputPassword" formControlName="password" />
+                    </div>
+                    <div class="col-12 my-3 d-flex justify-content-end">
+                        <button type="reset" class="btn btn-warning warning text-white mx-2" (click)="resetFormlario()"
+                            [disabled]="desabilitarLogin">
+                            <div class="d-flex mx-2">
+                                <span class="mx-2">
+                                    Limpar
+                                </span>
+                                <mat-icon>backspace</mat-icon>
+                            </div>
+                        </button>
+                        <button type="submit" class="btn btn-success" title="Clique para efeturar login"
+                            [disabled]="desabilitarLogin">
+                            @if (desabilitarLogin) {
+                            <mat-progress-spinner color="warn" mode="indeterminate" diameter="30">
+                            </mat-progress-spinner>
+                            } @else {
+                            <div class="d-flex mx-2">
+                                <span class="mx-2">Login</span>
+                                <mat-icon>login</mat-icon>
+                            </div>
+                            }
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="row my-2">
+            <p>É necessário se autenticar para validar as tarefas no Redmine Check.<br>
+                Utilize as mesmas credenciais do Redmine.</p>
+        </div>
+    </div>
+</div>

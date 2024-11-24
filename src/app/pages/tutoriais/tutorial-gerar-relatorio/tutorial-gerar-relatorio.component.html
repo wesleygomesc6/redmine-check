@@ -1,0 +1,158 @@
+<div>
+    <div class="d-flex justify-content-between">
+        <p class="fs-4">Gerar Relatório de Fiscalização</p>
+    </div>
+    <div class="my-4">
+        <p class="fs-6">Apos todos os fiscais finalizarem a fiscalização de suas atividades e o preposto(a) enviar o
+            <strong>Relatório de Atividades Provisório</strong>,
+            baixe <a href="https://url-redmine/issues" target="_blank"> aqui </a> as atividades com o
+            status <strong>Aprovada (Fechada)</strong> da OS fiscalizada (conforme imagem-01).
+        </p>
+        <ol>
+            <li>Adicione o filtro: OS(040/2020)</li>
+            <li>Escolha a OS do mês fiscalizado</li>
+            <li>Escolha o status: Aprovada (Fechada)</li>
+            <li>Selecione os campos necessários (as colunas selecionadas na imagem são obrigatórias)</li>
+            <li>Aplique o filtro para retornar as atividades</li>
+            <li>Role a página até o final e escolha Exportar para <strong>CSV</strong> (imagem-02)</li>
+            <li>Em opções de exportação CSV escolha a codificação <strong>UTF-8</strong> e clique em exportar
+                (imagem-03) </li>
+            <li>Abra o arquivo CSV no excel e copie todos os dados para uma nova aba na planilha de fiscalização
+                (imagens-04, 05 e 06)</li>
+            <li>Insira as colunas: <strong>Status, Obs, Tipo ressalva</strong> (imagem-07)
+                <ul>
+                    <em>Obs.: apenas a inicial dever ser maiúscula</em><br>
+                    Esses dados serão puxados da planilha que foi utilizada para fiscalização. O objetivo é identificar
+                    quais atividades foram aprovadas com alguma ressalva
+                    e especificar as aprovadas com ressalva de perfil profissional.
+                    <li><strong>Status: </strong> utilize a formula destacada na imagem-08 (ou preencha manualmente)
+                        <ul>
+                            <span>Os nomes devem ser os seguintes: <strong>(EXATAMENTE ASSIM)</strong></span>
+                            <li>Aprovada</li>
+                            <li>Aprovada Ressalva</li>
+                        </ul>
+                    </li>
+                    <li><strong>Obs: </strong> utilize a formula destacada na imagem-09</li>
+                    <li><strong>Tipo ressalva: </strong> preencha manualmente com as palavras
+                        <strong><em>perfil</em> </strong> ou <strong> <em>het</em> </strong> no caso da ressalva ser de
+                        perfil incompativel ou quando exeder o HET máximo. <br>
+                        <em>Obs.: preencher tudo minusculo.</em>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>A planilha deve ter obrigatoriamente as seguintes colunas:</strong><br>
+                <figure class="my-2">
+                    <img src="./assets/imagem10.png" class="img-fluid rounded shadow-lg" alt="imagem-10"
+                        title="imagem-10" />
+                    <figcaption class="text-center "> <strong>Imagem 10</strong></figcaption>
+                </figure>
+                <span><em>Essas colunas serão utilizadas no codigo, por isso são obrigatórias. Caso falte alguma ou
+                        esteja como nome incorreto o relatório não sera gerado;</em></span><br>
+                <span><em>Não precisa estar necessariamente na ordem;</em></span><br>
+                <span><em>Apenas as colunas destacadas são obrigatorias;</em></span> <br>
+
+            </li>
+            <li>Insira as atividades da <strong>Gerência do Escritório de Processos</strong> na planilha antes de fazer
+                o download. (seguir o mesmo padrão de nomenclatura conforme imagem-11)</li>
+            <li>Baixe as atividades no formato <strong>CSV</strong> na guia arquivo > fazer download.</li>
+            <li>Volte para o Redmine Check, selecione o arquivo que acabou de baixar e clique em <strong>Gerar
+                    Relatório</strong>.</li>
+        </ol>
+        <figure class="my-2">
+            <img src="./assets/imagem01.png" class="img-fluid rounded shadow-lg" alt="imagem-01" title="imagem-01" />
+            <figcaption class="text-center "> <strong>Imagem 01</strong></figcaption>
+        </figure>
+        <div class="d-block d-md-flex">
+            <figure class="my-5 me-4">
+                <img src="./assets/imagem02.png" class="img-fluid rounded shadow-lg" alt="imagem-02"
+                    title="imagem-02" />
+                <figcaption class="text-center"> <strong>Imagem 02</strong></figcaption>
+            </figure>
+            <figure class="my-5 ms-4">
+                <img src="./assets/imagem03.png" class="img-fluid rounded shadow-lg" alt="imagem-03"
+                    title="imagem-03" />
+                <figcaption class="text-center "> <strong>Imagem 03</strong></figcaption>
+            </figure>
+
+        </div>
+        <div class="d-block d-md-flex">
+            <figure class="my-5 me-4">
+                <img src="./assets/imagem04.png" class="img-fluid rounded shadow-lg" alt="imagem-04"
+                    title="imagem-04" />
+                <figcaption class="text-center"> <strong>Imagem 04</strong></figcaption>
+            </figure>
+            <figure class="my-5 ms-4">
+                <img src="./assets/imagem05.png" class="img-fluid rounded shadow-lg" alt="imagem-05"
+                    title="imagem-05" />
+                <figcaption class="text-center "> <strong>Imagem 05</strong></figcaption>
+            </figure>
+            <figure class="my-5 ms-4">
+                <img src="./assets/imagem06.png" class="img-fluid rounded shadow-lg" alt="imagem-06"
+                    title="imagem-06" />
+                <figcaption class="text-center "> <strong>Imagem 06</strong></figcaption>
+            </figure>
+
+        </div>
+        <div class="d-block d-md-flex">
+            <figure class="my-5 me-4">
+                <img src="./assets/imagem07.png" class="img-fluid rounded shadow-lg" alt="imagem-07"
+                    title="imagem-07" />
+                <figcaption class="text-center"> <strong>Imagem 07</strong></figcaption>
+            </figure>
+        </div>
+        <div class="d-block d-md-flex">
+            <figure class="my-5 me-4">
+                <img src="./assets/imagem08.png" class="img-fluid rounded shadow-lg" alt="imagem-08"
+                    title="imagem-08" />
+                <figcaption class="text-center"> <strong>Imagem 08</strong></figcaption>
+            </figure>
+            <div class="py-5">
+                <p><strong>Descrição imagem 08</strong></p>
+                <ul>
+                    <li>I: nome da aba da planilha onde estão as atividades fiscalizadas</li>
+                    <li>
+                        II: intervalo da seleção de todas as atividades que estão na planilha mensionada no item I. <br>
+                        <em>não se esqueça de adiconar os $ na formula, eles servem para travar a seleção.</em>
+                    </li>
+                    <li>
+                        III: o número 3 da formula indica o numero da coluna em que está a informação de status da
+                        atividade (se ela esta aprovada ou aprovada com ressalva). <br>
+                        <em>A formula vai preencher a celula somente se a ativide estiver com o status aprovada com
+                            ressalva.</em> <br>
+                        <em>Repita a formula em todas as atividades.</em> <br>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="d-block d-md-flex">
+            <figure class="my-5 me-4">
+                <img src="./assets/imagem09.png" class="img-fluid rounded shadow-lg" alt="imagem-09"
+                    title="imagem-09" />
+                <figcaption class="text-center"> <strong>Imagem 09</strong></figcaption>
+            </figure>
+            <div class="py-5">
+                <p><strong>Descrição imagem 09</strong></p>
+                <ul>
+                    <li>I: verifica se o status da atividade é aprovada com ressalva.</li>
+                    <li>
+                        II: busca na planilha de atividades fiscalizadas qual ressalva tem naquela atividade. <br>
+                    </li>
+                    <li>
+                        III: especifica em qual coluna esta a ressalva (na coluna 4, no caso do exemplo). <br>
+                        <em>A formula vai preencher a celula somente se a ativide estiver com o status aprovada com
+                            ressalva.</em> <br>
+                        <em>Repita a formula em todas as atividades.</em> <br>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="d-block d-md-flex">
+            <figure class="my-5 me-4">
+                <img src="./assets/imagem11.png" class="img-fluid rounded shadow-lg" alt="imagem-11"
+                    title="imagem-11" />
+                <figcaption class="text-center"> <strong>Imagem 11</strong></figcaption>
+            </figure>
+        </div>
+
+    </div>
+</div>

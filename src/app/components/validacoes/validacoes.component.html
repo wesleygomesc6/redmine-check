@@ -1,0 +1,90 @@
+<div class="card-group">
+    <div class="card mb-3 mt-3">
+        <div class="card-header bg-secondary bg-opacity-75 text-center">
+            <h5 class="mb-0">Catálogo de Serviços x Tarefa Redmine</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-borderless table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Catálogo de Serviço</th>
+                        <th scope="col">Tarefa Redmine</th>
+                        <th scope="col">Check</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th style="width: 15%" scope="row">Serviço</th>
+                        <td>{{ servicoCatalogo.codigo }}- {{ servicoCatalogo.servico }}</td>
+                        <td>{{ tarefa.servicoRedmine}}</td>
+                        <td class="fs-4"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Complexidade</th>
+                        <td>{{ servicoCatalogo.complexidade }}</td>
+                        <td>{{ tarefa.servico.complexidade }}</td>
+                        <td class="fs-4" [ngClass]="{     'text-success' : COMPLEXIDADE_OK === 1, 'text-danger' : COMPLEXIDADE_OK === 0 && COMPLEXIDADE_UNICA === 0, 
+                                        'text-warning' : COMPLEXIDADE_UNICA === 1}">
+                            <mat-icon>{{COMPLEXIDADE_UNICA === 1 ? 'info' : 'check_circle' }}</mat-icon>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Escopo</th>
+                        <td>{{ servicoCatalogo.escopo }}</td>
+                        <td class="fs-4" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">HET (Máx)</th>
+                        <td>{{ servicoCatalogo.het }}</td>
+                        <td>{{ tarefa.tempoExecucao }}</td>
+                        <td class="fs-4" [ngClass]="{ 
+                      'text-success' : HET_OK === 1, 'text-danger' : HET_OK === 0}">
+                            <mat-icon>{{ HET_OK === 0 ? 'cancel' : 'check_circle' }}</mat-icon>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Entregáveis</th>
+                        <td>{{ servicoCatalogo.entregaveis }}</td>
+                        <td class="fs-4" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Perfis Exigidos</th>
+                        <td>{{ perfisExigidos }}</td>
+                        <td>{{ tarefa.executor.perfil}}</td>
+                        <td class="fs-4" [ngClass]="{ 
+                      'text-success' : PROFISSIONAL_PERFIL === 1, 'text-danger' : PROFISSIONAL_PERFIL === 0}">
+                            <mat-icon>{{ PROFISSIONAL_PERFIL === 0 ? 'cancel' : 'check_circle' }}</mat-icon>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Atividades</th>
+                        <td>{{ servicoCatalogo.atividade }}</td>
+                        <td class="fs-4" colspan="2"></td>
+
+                    </tr>
+                    <tr>
+                        <th colspan="2" scope="row">Status da tarefa </th>
+                        <td>{{ tarefa.status }} </td>
+                        <td class="fs-4" [ngClass]="{ 
+                      'text-success' : TAREFA_STATUS === 1, 'text-danger' : TAREFA_STATUS === 0}">
+                            <mat-icon>{{ TAREFA_STATUS === 0 ? 'cancel' : 'check_circle' }}</mat-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" scope="row">Titulo da tarefa </th>
+                        <td colspan="2"> {{tarefa.titulo}}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" scope="row">Descrição da tarefa </th>
+                        <td colspan="2">{{ tarefa.descricao }} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

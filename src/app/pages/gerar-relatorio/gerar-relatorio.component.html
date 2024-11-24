@@ -1,0 +1,33 @@
+<div class="align-items-center w-100">
+    <label id="example-radio-group-label">Selecione o Item do Catálogo:</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" [(ngModel)]="itemCatalogo">
+        @for (item of items; track item) {
+        <mat-radio-button color="primary" [value]="item">{{item}}</mat-radio-button>
+        }
+    </mat-radio-group>
+</div>
+<form action="" class="row g-3" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+    <div class="col-12">
+        <label for="arquivo" class="form-label fs-6">Selecione o arquivo:</label>
+        <input class="form-control" type="file" id="arquivo" formControlName="arquivo" (change)="onFileChange($event)"
+            accept=".csv">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-success" [disabled]="!atividadesCsv.length">
+            Gerar Relatório
+        </button>
+        <button type="reset" class="btn btn-warning warning text-white ms-2" (click)="resetFormlario()">
+            Limpar
+        </button>
+
+    </div>
+</form>
+<ng-container *ngIf="exibirRelatorio">
+    <app-tabela-relatorio [dadosTabela]="atividades" [itemCatalogo]="itemCatalogo"></app-tabela-relatorio>
+</ng-container>
+<div class="container my-2">
+    <span class="fs-6">Veja <a [routerLink]="['/tutoriais/gerar-relatorio-fiscalizacao']">
+            <strong>aqui</strong>
+        </a> um tutorial de como gerar o relatório.</span>
+</div>

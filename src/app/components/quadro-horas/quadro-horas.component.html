@@ -1,0 +1,35 @@
+<div class="card my-3">
+    <div class="card-header bg-secondary bg-opacity-75 text-center">
+        <h5 class="mb-0">Horas & USTs</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">Perfil</th>
+                    <th scope="col">Complexidade</th>
+                    <th scope="col">Qtd. Horas</th>
+                    <th scope="col">USTs</th>
+                    <th scope="col">Valor R$</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let perfilExigido of tarefa.servico.perfisExigidos"
+                    [ngClass]="{'table-primary': tarefa.executor.complexidade == perfilExigido.complexidade}">
+                    <td>{{ perfilExigido.perfil }}</td>
+                    <td>{{ perfilExigido.complexidade }}</td>
+                    <td>{{ tarefa.tempoExecucao }}</td>
+                    <td>{{ calcularTotalUsts(perfilExigido.complexidade, tarefa.tempoExecucao) }}</td>
+                    <td>{{ calcularValorTotal(perfilExigido.complexidade, tarefa.tempoExecucao) }}</td>
+                </tr>
+                <tr class="table-warning" *ngIf="tarefa.executor.fcpDeflator">
+                    <td>FCP Deflator</td>
+                    <td>{{ tarefa.executor.fcpDeflator }}</td>
+                    <td>{{ tarefa.tempoExecucao }}</td>
+                    <td>{{ calcularTotalUsts(tarefa.executor.fcpDeflator, tarefa.tempoExecucao)}}
+                    <td>{{ calcularValorTotal(tarefa.executor.fcpDeflator, tarefa.tempoExecucao) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
